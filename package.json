@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "async-child-process": "^1.1.1",
+    "jimp": "^0.2.27",
     "koa": "^2.0.0-alpha.8",
-    "koa-router": "^7.0.1"
+    "koa-router": "^7.0.1",
+    "koa-static": "^3.0.0"
   }
 }
