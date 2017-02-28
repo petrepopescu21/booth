@@ -28,14 +28,14 @@ router.get('/image', async (ctx,next) => {
         ctx.state.images[i] = await Jimp.read("./images/camera/"+i+".jpg")
         ctx.state.images[i].resize(591,392,Jimp.RESIZE_BICUBIC)
     }
-
-    ctx.state.images.final = new Jimp(1181, 1772, 0xFFFFFFFF)
-
+    console.log('Creating empty image')
+    await ctx.state.images.final = new Jimp(1181, 1772, 0xFFFFFFFF)
+    console.log('Created image)
     await next()
     ctx.body = '<html><body><img src="done/something.jpg"/></body></html>'
 })
 router.get('/image', (ctx) => {
-    
+    console.log('Starting to collate')
     ctx.state.images.final.composite(ctx.state.images[0],0,0)
                           .composite(ctx.state.images[1],0,391)
                                 .composite(ctx.state.images[2],0,782)
