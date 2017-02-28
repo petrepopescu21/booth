@@ -29,7 +29,7 @@ router.get('/image', async (ctx,next) => {
         ctx.state.images[i].resize(591,392,Jimp.RESIZE_BICUBIC)
     }
     console.log('Creating empty image')
-    await ctx.state.images.final = new Jimp(1181, 1772, 0xFFFFFFFF)
+    ctx.state.images.final = await new Jimp(1181, 1772, 0xFFFFFFFF)
     console.log('Created image')
     await next()
     ctx.body = '<html><body><img src="done/something.jpg"/></body></html>'
