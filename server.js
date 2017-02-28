@@ -24,6 +24,7 @@ router.get('/', async (ctx) => {
 router.get('/image', async (ctx,next) => {
     ctx.state.images = {}
     for (i = 0; i < 3; i++) {
+        console.log('Image number '+i)
         ctx.state.images[i] = await Jimp.read("./images/camera/"+i+".jpg")
         ctx.state.images[i].resize(591,392,Jimp.RESIZE_BICUBIC)
     }
